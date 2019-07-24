@@ -142,7 +142,8 @@ create() {
 
     // this.physics.add.overlap(this.player, this.stars,this.collectStars, null, this );
 
-    this.add.text(30,20, 'Level 3', { font: '30px Lemon Bird', fill: '#A92C4B' }).setScrollFactor(0);
+    //this.add.text(30,20, 'Level 3', { font: '30px Lemon Bird', fill: '#A92C4B' }).setScrollFactor(0);
+    this.add.text(30,20, 'Level 3', { font: '30px Arial Black', fill: '#A92C4B' }).setScrollFactor(0);
 
     this.anims.create({
         key: 'jump',
