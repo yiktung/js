@@ -10,9 +10,6 @@ class mainScene extends Phaser.Scene {
         this.load.spritesheet('mainTiles', 'assets/tiledMainScene.png', {frameWidth: 750, frameHeight: 141});
         this.load.image('mainScene','assets/firstScene.png');
         this.load.spritesheet('randomcarrot1', 'assets/randomcarrot1.png', { frameWidth: 128, frameHeight: 128});
-        this.load.spritesheet('randomcarrot2', 'assets/randomcarrot2.png', { frameWidth: 128, frameHeight: 128});
-        this.load.spritesheet('randomcarrot3', 'assets/randomcarrot3.png', { frameWidth: 128, frameHeight: 128});
-        this.load.spritesheet('randomcarrot4', 'assets/randomcarrot4.png', { frameWidth: 128, frameHeight: 128});
         this.load.audio('bgm', 'assets/music/backgroundMusic.mp3');
     }
 
