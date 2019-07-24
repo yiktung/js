@@ -30,6 +30,8 @@ preload() {
 
     this.load.image('heart', 'assets/heart.png');
 
+    //this.load.script('webfont', 'http://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js');
+
     this.load.audio('jump', 'assets/music/jump.mp3');
     this.load.audio('fail', 'assets/music/fail.mp3');
 
@@ -128,7 +130,18 @@ create() {
 
     // this.physics.add.overlap(this.player, this.stars,this.collectStars, null, this );
 
-    this.add.text(30,20, 'Level 1', { font: '30px Lemon Bird', fill: '#A92C4B' }).setScrollFactor(0);
+    // WebFont.load({
+    //     google: {
+    //         families: [ 'Concert One' ]
+    //     },
+    //     active: function ()
+    //     { console.log('googlefont');
+    //         this.add.text(30, 20, 'Level 1', { fontFamily: 'Concert One', fontSize: 30, color: '#A92C4B' }).setScrollFactor(0);
+    //     }
+    // });
+
+    //this.add.text(30,20, 'Level 1', { font: '30px Lemon Bird', fill: '#A92C4B' }).setScrollFactor(0);
+    this.add.text(30,20, 'Level 1', { font: '30px Arial Black', fill: '#A92C4B' }).setScrollFactor(0);
 
     this.anims.create({
         key: 'jump',
