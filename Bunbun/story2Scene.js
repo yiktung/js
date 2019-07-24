@@ -7,10 +7,14 @@ class story2Scene extends Phaser.Scene {
 
     preload() {
         this.load.image('story2','assets/story2Scene.png');
+        this.load.audio('sighSound', 'assets/music/sigh.mp3');
 
     }
 
     create () {
+
+        this.sighSound = this.sound.add('sighSound');
+        this.sighSound.play();
 
         this.add.image(0, 0, 'story2').setOrigin(0, 0);
 

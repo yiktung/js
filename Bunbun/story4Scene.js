@@ -7,10 +7,15 @@ class story4Scene extends Phaser.Scene {
 
     preload() {
         this.load.image('story4','assets/story4Scene.png');
+        this.load.audio('omg', 'assets/music/omg.mp3');
 
     }
 
     create () {
+
+        this.omgosh = this.sound.add('omg');
+        //this.omgosh.loop = true;
+        this.omgosh.play();
 
         this.add.image(0, 0, 'story4').setOrigin(0, 0);
 

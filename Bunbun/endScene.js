@@ -7,10 +7,15 @@ class endScene extends Phaser.Scene {
 
     preload() {
         this.load.image('end','assets/endScene.png');
+        this.load.audio('laugh', 'assets/music/laugh.mp3');
 
     }
 
     create () {
+
+        this.giggle = this.sound.add('laugh');
+        //this.omgosh.loop = true;
+        this.giggle.play();
 
         this.add.image(0, 0, 'end').setOrigin(0, 0);
 
