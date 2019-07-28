@@ -37,7 +37,7 @@ preload() {
 
     this.load.image('goldencarrot', 'assets/goldencarrot.png');
 
-    this.load.audio('jump', 'assets/music/.mp3');
+    this.load.audio('jump', 'assets/music/jump.mp3');
     this.load.audio('fail', 'assets/music/fail.mp3');
 
 }
