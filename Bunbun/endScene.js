@@ -30,6 +30,19 @@ class endScene extends Phaser.Scene {
         this.scene.start("mainScene");
         }, this );
 
+        var pointer = this.input.activePointer;
+        'x: ' + pointer.worldX,
+        'y: ' + pointer.worldY,
+        'isDown: ' + pointer.isDown,
+        'rightButtonDown: ' + pointer.rightButtonDown()
+
+        this.input.on('pointerdown', function (pointer) {
+
+        console.log("Spacebar pressed, goto mainScene");
+        this.scene.stop("endScene");
+        this.scene.start("mainScene");
+        }, this );
+
     }
 
 }

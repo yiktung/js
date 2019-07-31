@@ -53,6 +53,19 @@ class story4Scene extends Phaser.Scene {
         this.scene.start("story5Scene");
         }, this );
 
+        var pointer = this.input.activePointer;
+        'x: ' + pointer.worldX,
+        'y: ' + pointer.worldY,
+        'isDown: ' + pointer.isDown,
+        'rightButtonDown: ' + pointer.rightButtonDown()
+
+        this.input.on('pointerdown', function (pointer) {
+
+        console.log("Spacebar pressed, goto story5Scene");
+        this.scene.stop("story4Scene");
+        this.scene.start("story5Scene");
+        }, this );
+
     }
 
 }

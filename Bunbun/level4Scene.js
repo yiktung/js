@@ -289,20 +289,45 @@ update() {
         this.player.anims.play('right', true);
         this.player.flipX = false; 
     }
+
+    var pointer = this.input.activePointer;
     
-    // jump 
-    if (this.space.isDown && this.player.body.onFloor())
+        'x: ' + pointer.worldX,
+        'y: ' + pointer.worldY,
+        'isDown: ' + pointer.isDown,
+        'rightButtonDown: ' + pointer.rightButtonDown()
+
+    this.input.on('pointerdown', function (pointer) {
+
+    if (this.input.on && this.player.body.onFloor())
     {
         this.jumpSound.play();
         this.player.body.setVelocityY(-400); 
         this.player.anims.play('jump', true);       
     }
-
-    else if (this.player.body.onFloor())
-    {
-        this.player.body.setVelocityX(260);
+     else {
+         if (this.player.body.onFloor())
+        {
+        this.player.body.setVelocityX(200);
         this.player.anims.play('right', true);       
+        }
     }
+    }, this);
+
+     if (this.space.isDown && this.player.body.onFloor())
+        {
+        this.jumpSound.play();
+        this.player.body.setVelocityY(-400); 
+        this.player.anims.play('jump', true);       
+        }
+
+    else {
+        if(this.player.body.onFloor())
+        {
+        this.player.body.setVelocityX(200);
+        this.player.anims.play('right', true);       
+        }
+    };
 
     var dist = 5659 - this.player.x;
 

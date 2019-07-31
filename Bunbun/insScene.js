@@ -25,6 +25,19 @@ class insScene extends Phaser.Scene {
         this.scene.start("level1Scene");
         }, this );
 
+        var pointer = this.input.activePointer;
+        'x: ' + pointer.worldX,
+        'y: ' + pointer.worldY,
+        'isDown: ' + pointer.isDown,
+        'rightButtonDown: ' + pointer.rightButtonDown()
+
+        this.input.on('pointerdown', function (pointer) {
+
+        console.log("Spacebar pressed, goto level1Scene");
+        this.scene.stop("insScene");
+        this.scene.start("level1Scene");
+        }, this );
+
     }
 
 }

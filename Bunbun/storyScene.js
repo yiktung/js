@@ -25,6 +25,20 @@ class storyScene extends Phaser.Scene {
         this.scene.start("story2Scene");
         }, this );
 
+        var pointer = this.input.activePointer;
+        'x: ' + pointer.worldX,
+        'y: ' + pointer.worldY,
+        'isDown: ' + pointer.isDown,
+        'rightButtonDown: ' + pointer.rightButtonDown()
+
+        this.input.on('pointerdown', function (pointer) {
+
+        console.log("Spacebar pressed, goto story2Scene");
+        this.scene.stop("storyScene");
+        this.scene.start("story2Scene");
+        }, this );
+
+
     }
 
 }

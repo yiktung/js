@@ -100,6 +100,19 @@ class mainScene extends Phaser.Scene {
         //this.scene.start("level3Scene");
         }, this );
 
+        var pointer = this.input.activePointer;
+        'x: ' + pointer.worldX,
+        'y: ' + pointer.worldY,
+        'isDown: ' + pointer.isDown,
+        'rightButtonDown: ' + pointer.rightButtonDown()
+
+        this.input.on('pointerdown', function (pointer) {
+
+        console.log("Spacebar pressed, goto level5Scene");
+        this.scene.stop("mainScene");
+        this.scene.start("storyScene");
+        }, this );
+
         key1.on('down', function(){
             this.scene.stop("mainScene");
             this.scene.start("level1Scene");

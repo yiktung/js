@@ -6,7 +6,7 @@ class goScene2 extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('gameOver2','assets/goScene2.png');
+        this.load.image('gameOver2','assets/gOScene2.png');
 
     }
 
@@ -20,6 +20,19 @@ class goScene2 extends Phaser.Scene {
         var spaceDown = this.input.keyboard.addKey('SPACE');
         
         spaceDown.on('down', function(){
+        console.log("Spacebar pressed, goto level2Scene");
+        this.scene.stop("goScene2");
+        this.scene.start("level2Scene");
+        }, this );
+
+        var pointer = this.input.activePointer;
+        'x: ' + pointer.worldX,
+        'y: ' + pointer.worldY,
+        'isDown: ' + pointer.isDown,
+        'rightButtonDown: ' + pointer.rightButtonDown()
+
+        this.input.on('pointerdown', function (pointer) {
+
         console.log("Spacebar pressed, goto level2Scene");
         this.scene.stop("goScene2");
         this.scene.start("level2Scene");

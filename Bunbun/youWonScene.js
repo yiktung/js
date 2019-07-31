@@ -29,6 +29,19 @@ class youWonScene extends Phaser.Scene {
         this.scene.start("endScene");
         }, this );
 
+        var pointer = this.input.activePointer;
+        'x: ' + pointer.worldX,
+        'y: ' + pointer.worldY,
+        'isDown: ' + pointer.isDown,
+        'rightButtonDown: ' + pointer.rightButtonDown()
+
+        this.input.on('pointerdown', function (pointer) {
+
+        console.log("Spacebar pressed, goto endScene");
+        this.scene.stop("youWon");
+        this.scene.start("endScene");
+        }, this );
+
     }
 
 }
