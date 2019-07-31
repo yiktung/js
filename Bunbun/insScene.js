@@ -6,7 +6,7 @@ class insScene extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('instruction','assets/insScene.png');
+        this.load.image('instruction','assets/instructionScene.png');
 
     }
 

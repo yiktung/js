@@ -7,6 +7,7 @@ class story5Scene extends Phaser.Scene {
 
     preload() {
         this.load.image('story5','assets/story5Scene.png');
+        this.load.spritesheet('thought', 'assets/thought.png', { frameWidth: 750, frameHeight: 460});
         this.load.audio('hungry', 'assets/music/hungry.mp3');
 
     }
@@ -17,7 +18,18 @@ class story5Scene extends Phaser.Scene {
         //this.hunger.loop = true;
         this.hunger.play();
 
+        this.anims.create({
+            key: 'thinking',
+            frames: this.anims.generateFrameNumbers('thought', { start: 0, end: 2 }),
+            frameRate: 2,
+            repeat: -1
+        });
+
         this.add.image(0, 0, 'story5').setOrigin(0, 0);
+
+        this.thought= this.add.group();
+
+        this.thought.create( 310, 230, 'thought').play('thinking');
 
         console.log("This is story5Scene");
 

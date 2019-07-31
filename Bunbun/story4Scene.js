@@ -6,7 +6,8 @@ class story4Scene extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('story4','assets/story4Scene.png');
+        this.load.spritesheet('story4','assets/story4Scene.png', { frameWidth: 750, frameHeight: 460});
+        this.load.spritesheet('bling', 'assets/bling.png', { frameWidth: 750, frameHeight: 460});
         this.load.audio('omg', 'assets/music/omg.mp3');
 
     }
@@ -17,7 +18,29 @@ class story4Scene extends Phaser.Scene {
         //this.omgosh.loop = true;
         this.omgosh.play();
 
-        this.add.image(0, 0, 'story4').setOrigin(0, 0);
+        this.anims.create({
+            key: 'biggerbling',
+            frames: this.anims.generateFrameNumbers('bling', { start: 0, end: 1 }),
+            frameRate: 2,
+            repeat: -1
+        });
+
+        this.anims.create({
+            key: 'storybling',
+            frames: this.anims.generateFrameNumbers('story4', { start: 0, end: 1 }),
+            frameRate: 2,
+            repeat: -1
+        });
+
+        this.bling= this.add.group();
+
+        this.bling.create( 375, 230, 'bling').play('biggerbling');
+
+        this.story4= this.add.group();
+
+        this.story4.create( 375, 230, 'story4').play('storybling');
+
+        //this.add.image(0, 0, 'story4').setOrigin(0, 0);
 
         console.log("This is story4Scene");
 
