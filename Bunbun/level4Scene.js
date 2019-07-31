@@ -104,15 +104,18 @@ create() {
     // Add random carrots
     this.carrotGroup = this.physics.add.group({
         key: 'carrot',
-        repeat: 8,
+        repeat: 0,
         setXY: { x: 600, y: 10, stepX: Phaser.Math.Between(500, 600) }
     });
     // Add random mole
     this.mole = this.physics.add.group({
         key: 'mole',
-        repeat: 7,
-        setXY: { x: 300, y: 10, stepX: Phaser.Math.Between(300, 900) }
+        repeat: 10,
+        setXY: { x: 600, y: 10, stepX: Phaser.Math.Between(300, 900) }
     });
+
+    this.timedEvent = this.time.addEvent({ delay: 1000, callback: this.moveLeft, callbackScope: this, loop: true });
+    this.timedEvent2 = this.time.addEvent({ delay: 2000, callback: this.moveRight, callbackScope: this, loop: true });
 
     //animate carrot
     this.anims.create({
@@ -126,12 +129,6 @@ create() {
     this.carrotGroup.children.iterate(carrot => {
         carrot.play('spinCarrot')
       })
-
-    //golden carrot
-    this.goldenCarrot = this.physics.add.group({
-        key: 'goldencarrot',
-        setXY: { x: 5659, y: 250, }
-    });
 
     this.physics.add.overlap(this.player, this.carrotGroup,this.hitCarrot, null, this );
     this.physics.add.overlap(this.player, this.mole,this.hitMole, null, this );
@@ -280,6 +277,26 @@ removeCarrot(carrot,mole) {
     carrot.disableBody(true, true);
     
 }
+
+moveLeft(mole) {
+    this.tweens.add({
+        targets: this.mole.getChildren().map(function (c) { return c.body.velocity }),
+        x: Phaser.Math.Between(-50, -50) ,
+        ease: 'Sine.easeInOut',
+        yoyo: true,
+        repeat: false
+    });
+}
+moveRight(mole) {
+    this.tweens.add({
+        targets: this.mole.getChildren().map(function (c) { return c.body.velocity }),
+        x:  Phaser.Math.Between(50, 50),
+        ease: 'Sine.easeInOut',
+        yoyo: true,
+        repeat: false
+    });
+}
+
 
 update() {
 
