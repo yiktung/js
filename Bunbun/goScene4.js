@@ -6,7 +6,7 @@ class goScene4 extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('gameOver4','assets/gOScene4.png');
+        this.load.image('gameOver4','assets/goScene4.png');
 
     }
 
